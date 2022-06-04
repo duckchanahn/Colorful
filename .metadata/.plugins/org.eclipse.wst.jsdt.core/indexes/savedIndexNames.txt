@@ -1,0 +1,2 @@
+INDEX VERSION 1.4+D:\Code\Colorful\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1475809078.index
