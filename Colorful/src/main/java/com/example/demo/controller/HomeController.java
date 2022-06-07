@@ -15,6 +15,7 @@ public class HomeController {
 	@ApiOperation("test")
 	@ResponseStatus(HttpStatus.OK)
 	public String test() {
+		System.out.println("우와아아아아아아아아");
 		return "test";
 	}
 	
