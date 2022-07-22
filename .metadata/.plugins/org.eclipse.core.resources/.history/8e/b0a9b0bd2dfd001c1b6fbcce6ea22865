@@ -1,0 +1,39 @@
+package com.example.demo.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="traveldestination")
+public class TravelDestination {
+
+	private int travel_destination_id;
+	private String overview;
+	private String address;
+	private String hompage;
+	private String telephone;
+	private String holiday;
+	private String parking;
+	private String toilet;
+	private String fee;
+	private String images;
+	private String color_travel_destination;
+	
+	
+	public TravelDestination() {
+		super();
+		
+		 int travel_destination_id;
+		 String overview;
+		 String address;
+		 String hompage;
+		 String telephone;
+		 String holiday;
+		 String parking;
+		 String toilet;
+		 String fee;
+		 String images;
+		 String color_travel_destination;
+	}
+	
+}

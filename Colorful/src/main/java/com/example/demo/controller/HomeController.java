@@ -25,7 +25,7 @@ public class HomeController {
 	@ResponseStatus(HttpStatus.OK)
 	public List<Test> test() {
 		
-		return testService.test_init();
+		return null;
 	}
 	
 }
