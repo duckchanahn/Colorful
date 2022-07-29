@@ -1,10 +1,7 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="traveldestination")
+//@Entity
+//@Table(name="traveldestination")
 public class TravelDestination {
 
 	int travel_destination_id;

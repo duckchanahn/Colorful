@@ -1,45 +1,50 @@
 package com.example.demo.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="customer")
 public class Customer {
 
-    private int userId;
-    private String userName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int customerId;
+    private String customerName;
     private String personalColor;
     private String psychologiclaColor;
 
     public Customer() {
-        this.userId = 0;
-        this.userName = "";
+        this.customerId = 0;
+        this.customerName = "";
         this.personalColor = "";
         this.psychologiclaColor = "";
     }
 
-    public Customer(int userId, String userName, String personalColor, String psychologiclaColor) {
-        this.userId = userId;
-        this.userName = userName;
+    public Customer(int customerId, String customerName, String personalColor, String psychologiclaColor) {
+        this.customerId = customerId;
+        this.customerName = customerName;
         this.personalColor = personalColor;
         this.psychologiclaColor = psychologiclaColor;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getPersonalColor() {
