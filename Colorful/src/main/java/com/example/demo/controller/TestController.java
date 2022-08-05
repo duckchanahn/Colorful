@@ -1,15 +1,16 @@
 package com.example.demo.controller;
 
-import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.PsycologicalTestAnswer;
+import com.example.demo.model.PsycologicalTestQuestion;
 import com.example.demo.service.TestService;
 
 import io.swagger.annotations.ApiOperation;
@@ -34,8 +35,14 @@ public class TestController {
 	
 	@GetMapping("/test/psycological/question")
 	@ApiOperation("심리컬러 질문지 받아오기")
-	public JSONObject getPsycologicalQuestion() {
+	public List<PsycologicalTestQuestion> getPsycologicalQuestion() {
 		return testService.getPsycologicalQuestion();
 	}
-
+	
+	@GetMapping("	")
+	@ApiOperation("심리컬러 답변 받아오기")
+	public List<PsycologicalTestAnswer>getPsycologicalAnswer() {
+		return testService.getPsycologicalAnswer();
+	}
+	
 }

@@ -42,15 +42,14 @@ public class TestService {
 		
 	}
 
-	public JSONObject getPsycologicalQuestion() {
+	public List<PsycologicalTestQuestion> getPsycologicalQuestion() {
 		List<PsycologicalTestQuestion> questions = this.testRepository.getPsycologicalQuestion();
+		return questions;
+	}
+	
+	public List<PsycologicalTestAnswer> getPsycologicalAnswer() {
 		List<PsycologicalTestAnswer> answers = this.testRepository.getPsycologicalAnswer();
-		
-		JSONObject result = new JSONObject();
-		result.put("question", questions);
-		result.put("answer", answers);
-
-		return result;
+		return answers;
 	}
 	
 }
