@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="psycologicaltest_answer")
+@Table(name="psycologicaltest_question")
 public class PsycologicalTestQuestion {
 	
 	@Id
@@ -18,8 +18,6 @@ public class PsycologicalTestQuestion {
 	private String type;
 	
 	public PsycologicalTestQuestion() {
-		super();
-		
 		this.questionId = 0;
 		this.content = "";
 		this.type = "";
@@ -27,8 +25,6 @@ public class PsycologicalTestQuestion {
 	
 	
 	public PsycologicalTestQuestion(int questionId, String content, String type) {
-		super();
-		
 		this.questionId = questionId;
 		this.content = content;
 		this.type = type;

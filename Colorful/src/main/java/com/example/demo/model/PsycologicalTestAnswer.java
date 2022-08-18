@@ -16,7 +16,7 @@ public class PsycologicalTestAnswer {
 	
 	private int questionId;
 	private String content;
-	private String type;
+	private char type;
 	
 	public PsycologicalTestAnswer() {
 		super();
@@ -24,11 +24,11 @@ public class PsycologicalTestAnswer {
 		this.answerId = 0;
 		this.questionId = 0;
 		this.content = "";
-		this.type = "";
+		this.type = 0;
 	}
 	
 	
-	public PsycologicalTestAnswer(int answerId, int questionId, String content, String type) {
+	public PsycologicalTestAnswer(int answerId, int questionId, String content, char type) {
 		super();
 		
 		this.answerId = answerId;
@@ -67,12 +67,12 @@ public class PsycologicalTestAnswer {
 	}
 
 
-	public String getType() {
+	public char getType() {
 		return type;
 	}
 
 
-	public void setType(String type) {
+	public void setType(char type) {
 		this.type = type;
 	}
 	

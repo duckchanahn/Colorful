@@ -52,7 +52,6 @@ public class TestService {
 		return answers;
 	}
 
-	@Transactional(readOnly = false)
 	public int updatePsycologicalResult(int customerId, String result) {
 		return this.testRepository.updateResultBycustomerId(customerId, result);
 	}

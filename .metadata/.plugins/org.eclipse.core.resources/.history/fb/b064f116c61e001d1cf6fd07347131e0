@@ -16,22 +16,22 @@ public class Customer {
     private String customerName;
     private String userId;
     private String personalColor;
-    private String psycologicalColor;
+    private String psychologicalColor;
 
     public Customer() {
         this.customerId = 0;
         this.customerName = "";
         this.userId =  "";
         this.personalColor = "";
-        this.psycologicalColor = "";
+        this.psychologicalColor = "";
     }
 
-    public Customer(int customerId, String customerName, String userId, String personalColor, String psycologicalColor) {
+    public Customer(int customerId, String customerName, String userId, String personalColor, String psychologicalColor) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.userId = userId;
         this.personalColor = personalColor;
-        this.psycologicalColor = psycologicalColor;
+        this.psychologicalColor = psychologicalColor;
     }
 
     public int getCustomerId() {
@@ -66,11 +66,11 @@ public class Customer {
         this.personalColor = personalColor;
     }
 
-    public String getPsycologicalColor() {
-        return psycologicalColor;
+    public String getPsychologicalColor() {
+        return psychologicalColor;
     }
 
-    public void setPsycologicalColor(String psycologicalColor) {
-        this.psycologicalColor = psycologicalColor;
+    public void setPsychologicalColor(String psychologicalColor) {
+        this.psychologicalColor = psychologicalColor;
     }
 }

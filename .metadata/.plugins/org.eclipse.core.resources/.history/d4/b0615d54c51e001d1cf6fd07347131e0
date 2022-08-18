@@ -34,8 +34,7 @@ public interface TestRepository extends JpaRepository<Customer, Integer> {
 	@Query("SELECT p FROM PsycologicalTestAnswer p ORDER BY p.answerId")
 	List<PsycologicalTestAnswer> getPsycologicalAnswer();
 
-	@Modifying
-	@Query("UPDATE Customer c SET c.psycologicalColor = :result where c.customerId = :customerId")
+	@Query("UPDATE Customer c SET c.psycolofical_color = :result where c.customer_id = :customer_id")
 	int updateResultBycustomerId(int customerId, String result);
 	
 	

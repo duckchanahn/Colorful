@@ -53,10 +53,9 @@ public class TestController {
 	@PostMapping("/test/psycological/result")
 	@ApiOperation("심리컬러 답변 받아오기")
 	@ResponseBody
-	public int updatePsycologicalResult(int customerId, String result) {
+	public int updatePsycologicalResult(String result) {
 		System.out.println("심리컬러 결과 저장 입장! ==================");
-		System.out.println("customerId : " + customerId + ", " + "result : " + result);
-		return testService.updatePsycologicalResult(customerId, result);
+		return testService.updatePsycologicalResult(result);
 	}
 	
 }
