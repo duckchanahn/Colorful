@@ -25,12 +25,7 @@ public class TestController {
 	@PostMapping("/test/personalcolor")
 	@ApiOperation("퍼스널컬러 테스트")
 	public String testPersonalColor(@RequestBody HashMap<String, Object> param) {
-		
 		System.out.println("start-----------------------------------------");
-//		byte[] binary = Base64.getDecoder().decode((String) param.get("binary"));
-//		String test = testService.connectPersonalColorTest((int)param.get("customerId"), (String)param.get("binary"));
-//		System.out.println("binary : " + (String)param.get("binary"));
-		
 		return testService.connectPersonalColorTest((int)param.get("customerId"), (String)param.get("binary"));
 	}
 	

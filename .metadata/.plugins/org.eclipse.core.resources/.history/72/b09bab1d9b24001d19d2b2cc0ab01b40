@@ -1,0 +1,75 @@
+package com.example.demo.service;
+
+import java.util.List;
+
+import org.json.simple.JSONObject;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Palette;
+import com.example.demo.model.TourSpot;
+
+@Service
+public class TravelService {
+
+	public List<TourSpot> recoomendPersonalColor(String personal) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<TourSpot> recoomendPsyColor(String psy) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public TourSpot getTourSpotDetail(int tourSpotId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public TourSpot getPalette(int paletteId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public TourSpot getPaletteList(int customerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public TourSpot addPalette(Object object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public TourSpot deletePalette(int paletteId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Palette addTourSpotInPalette(Object object, Object object2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Palette deleteTourSpotInPalette(Object object, Object object2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public TourSpot getRanmdomTourSpot(Object object, Object object2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public JSONObject addStar(int customerId, int tourSpotId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public JSONObject deleteStar(int customerId, int tourSpotId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

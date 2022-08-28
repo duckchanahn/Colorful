@@ -1,0 +1,29 @@
+package com.example.demo.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import com.example.demo.model.Palette;
+import com.example.demo.model.TourSpot;
+
+public interface PaletteRepository extends JpaRepository<Palette, Integer> {
+
+	@Query("SELECT p FROM Palette p WHERE p.paletteId = :paletteId")
+	Palette findPaletteById(int paletteId);
+
+	@Query("SELECT p FROM Palette p WHERE p.customerId = :customerId")
+	List<Palette> findPaletteByCustomerId(int customerId);
+
+	Optional<TourSpot> findTourSpotListByPaletteId(int paletteId);
+	
+	@Modifying
+	void updateTourSpotListByPaletteId(int paletteId, String TourSpotIdList);
+
+//	@Modifying
+//	Palette save(Palette palette);
+
+}

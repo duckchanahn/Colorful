@@ -1,0 +1,97 @@
+package com.example.demo.controller;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.Palette;
+import com.example.demo.model.TourSpot;
+import com.example.demo.service.TravelService;
+
+import io.swagger.annotations.ApiOperation;
+
+@RestController
+public class TravelController {
+	
+	@Autowired
+	TravelService travelService;
+	
+	@GetMapping("/test/personalcolor")
+	@ApiOperation("퍼스널컬러 추천")
+	public List<TourSpot> recommendPersonalColor(String personal) {
+		return travelService.recoomendPersonalColor(personal);
+	}
+	
+	@GetMapping("/test/psycolor")
+	@ApiOperation("심리컬러 추천")
+	public List<TourSpot> recommendPsyColor(String psy) {
+		return travelService.recoomendPsyColor(psy);
+	}
+	
+	@GetMapping("/tourspot")
+	@ApiOperation("여행지 상세페이지")
+	public TourSpot getTourSpotDetail(int tourSpotId) {
+		return travelService.getTourSpotDetail(tourSpotId);
+	}
+	
+	@GetMapping("/palette")
+	@ApiOperation("여행코스 받아오기")
+	public TourSpot getPalette(int paletteId) {
+		return travelService.getPalette(paletteId);
+	}
+	
+	@GetMapping("/palette/list")
+	@ApiOperation("여행코스 리스트 받아오기")
+	public TourSpot getPaletteList(int customerId) {
+		return travelService.getPaletteList(customerId);
+	}
+	
+	@PostMapping("/add/palette")
+	@ApiOperation("여행코스 만들기")
+	public TourSpot addPalette(@RequestBody HashMap<String, Object> param) {
+		return travelService.addPalette(param.get("tourSpotId"));
+	}
+	
+	@PostMapping("/delete/palette")
+	@ApiOperation("여행코스 삭제")
+	public TourSpot deletePalette(int paletteId) {
+		return travelService.deletePalette(paletteId);
+	}
+
+	@PostMapping("/palette/add")
+	@ApiOperation("여행코스 여행지 추가")
+	public Palette addTourSpotInPalette(@RequestBody HashMap<String, Object> param) {
+		return travelService.addTourSpotInPalette(param.get("paletteId"), param.get("tourSpotId"));
+	}
+	
+	@PostMapping("/palette/delete")
+	@ApiOperation("여행코스 여행지 삭제")
+	public Palette deleteTourSpotInPalette(@RequestBody HashMap<String, Object> param) {
+		return travelService.deleteTourSpotInPalette(param.get("paletteId"), param.get("tourSpotId"));
+	}
+	
+	
+	@GetMapping("tourspot/random")
+	@ApiOperation("랜덤 여행지 추천")
+	public TourSpot getRandomTourSpot(@RequestBody HashMap<String, Object> param) {
+		return travelService.getRanmdomTourSpot(param.get("psycolor"), param.get("personalcolor"));
+	}
+	
+	@PostMapping("star/add")
+	@ApiOperation("찜목록 추가")
+	public JSONObject addStar(@RequestBody HashMap<String, Object> param) {
+		return travelService.addStar((int)param.get("customerId"), (int)param.get("tourSpotId"));
+	}
+
+	@PostMapping("star/delete")
+	@ApiOperation("찜목록 삭제")
+	public JSONObject deleteStar(@RequestBody HashMap<String, Object> param) {
+		return travelService.deleteStar((int)param.get("customerId"), (int)param.get("tourSpotId"));
+	}
+}

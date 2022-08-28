@@ -1,0 +1,49 @@
+package com.example.demo.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="palette")
+public class Palette {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int paletteId;
+	String listTourSpotId;
+	
+	public Palette() {
+		super();
+		
+		this.paletteId = 0;
+		this.listTourSpotId = "";
+	}
+	
+	public Palette(int paletteId, String listTourSpotId) {
+		super();
+		
+		this.paletteId = paletteId;
+		this.listTourSpotId = listTourSpotId;
+	}
+
+	public int getPaletteId() {
+		return paletteId;
+	}
+
+	public void setPaletteId(int paletteId) {
+		this.paletteId = paletteId;
+	}
+
+	public String getListTourSpotId() {
+		return listTourSpotId;
+	}
+
+	public void setListTourSpotId(String listTourSpotId) {
+		this.listTourSpotId = listTourSpotId;
+	}
+	
+	
+}

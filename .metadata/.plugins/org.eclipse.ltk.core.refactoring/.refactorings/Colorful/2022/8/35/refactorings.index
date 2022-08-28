@@ -1,0 +1,12 @@
+1661444358430	Rename type 'TravelDestination'
+1661444566125	Rename type 'TravelSpot'
+1661444584127	Rename field 'travel_spot_id'
+1661444646299	Rename field 'overview'
+1661445766538	Rename type 'Course'
+1661447869655	Rename field 'tour_spot_id'
+1661447993826	Rename field 'starId'
+1661448076809	Delete element
+1661505325407	Rename type 'TravelRepository'
+1661505360352	Rename field 'travelRepository'
+1661505432050	Copy compilation unit
+1661511318031	Copy compilation unit

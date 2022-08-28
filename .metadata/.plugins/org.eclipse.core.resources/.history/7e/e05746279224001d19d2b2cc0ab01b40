@@ -1,0 +1,68 @@
+package com.example.demo.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="travel_spot")
+public class TravelSpot {
+
+	int travel_spot_id;
+	String overview;
+	String address;
+	String hompage;
+	String telephone;
+	String holiday;
+	String parking;
+	String toilet;
+	String fee;
+	String images;
+	String color_travel_destination;
+	
+	
+	public TravelSpot() {
+		super();
+		
+		this.travel_spot_id = 0;
+		this.overview = "";
+		this.address = "";
+		this.hompage = "";
+		this.telephone = "";
+		this.holiday = "";
+		this. parking = "";
+		this. toilet = "";
+		this. fee = "";
+		this. images = "";
+		this. color_travel_destination = "";
+	}
+	
+	public TravelSpot(int travel_spot_id,
+			String overview,
+			String address,
+			String hompage,
+			String telephone,
+			String holiday,
+			String parking,
+			String toilet,
+			String fee,
+			String images,
+			String color_travel_destination
+			) {
+		super();
+		
+		this.travel_spot_id = travel_spot_id;
+		this. overview = overview;
+		this. address = address;
+		this. hompage = hompage;
+		this. telephone = telephone;
+		this. holiday = holiday;
+		this. parking = parking;
+		this. toilet = toilet;
+		this. fee = fee;
+		this. images = images;
+		this. color_travel_destination = color_travel_destination;
+	}
+	
+
+
+}

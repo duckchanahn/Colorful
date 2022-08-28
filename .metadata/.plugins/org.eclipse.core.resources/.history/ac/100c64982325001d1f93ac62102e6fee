@@ -1,0 +1,91 @@
+package com.example.demo.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.Palette;
+import com.example.demo.model.TourSpot;
+import com.example.demo.repository.PaletteRepository;
+import com.example.demo.repository.TourSpotRepository;
+
+@Service
+public class TravelService {
+
+	@Autowired
+	TourSpotRepository tourSpotRepository;
+	
+	@Autowired
+	PaletteRepository paletteRepository;
+	
+	public List<TourSpot> recoomendPersonalColor(String personal) {
+		return tourSpotRepository.findAllByPersonal(personal);
+	}
+
+	public List<TourSpot> recoomendPsyColor(String psy) {
+		return tourSpotRepository.findAllByPsy(psy);
+	}
+
+	public TourSpot getTourSpotDetail(int tourSpotId) {
+		return tourSpotRepository.findById(tourSpotId).get();
+	}
+
+	public JSONObject getPalette(int paletteId) {
+		JSONObject json = new JSONObject();
+		Palette palette = this.paletteRepository.findPaletteById(paletteId);
+		json.put("palette", palette);
+		ArrayList<TourSpot> list = new ArrayList<>();
+		for(String i : palette.getListTourSpotId().split(",")) {
+			list.add(this.tourSpotRepository.findById(Integer.parseInt(i)).get());
+		}
+		
+		json.put("tourspotlist", list);
+		return json;
+	}
+
+	public List<Palette> getPaletteList(int customerId) {
+		return this.paletteRepository.findPaletteByCustomerId(customerId);
+	}
+
+
+	public Palette addPalette(Palette palette) {
+		return this.paletteRepository.save(palette);
+	}
+
+	public void deletePalette(int paletteId) {
+		this.paletteRepository.deleteById(paletteId);;
+	}
+
+	@Transactional(readOnly = false)
+	public Palette addTourSpotInPalette(int paletteId, int tourSpotId) {
+		this.paletteRepository.updateTourSpotListByPaletteId(paletteId, 
+				this.paletteRepository.findTourSpotListByPaletteId(paletteId).get() + "," +tourSpotId);
+		return null;
+	}
+
+	public Palette deleteTourSpotInPalette(Object object, Object object2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public TourSpot getRanmdomTourSpot(Object object, Object object2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public JSONObject addStar(int customerId, int tourSpotId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public JSONObject deleteStar(int customerId, int tourSpotId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -18,5 +18,15 @@ public class CustomerController {
 		return null;
 	}
 	
+	
+	@PostMapping("signup/colorful") 
+	@ApiOperation("회원가입")
+	public Customer signup(String id) {
+		
+		return null;
+	}
+	
+	
+	
 
 }

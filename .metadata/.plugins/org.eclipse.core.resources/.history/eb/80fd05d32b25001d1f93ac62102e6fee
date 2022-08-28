@@ -1,0 +1,49 @@
+package com.example.demo.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="star")
+public class Star {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int starId;
+	String listTourSpotId;
+	
+	public Star() {
+		super();
+		
+		this.starId = 0;
+		this.listTourSpotId = "";
+	}
+	
+	public Star(int starId, String listTourSpotId) {
+		super();
+		
+		this.starId = starId;
+		this.listTourSpotId = listTourSpotId;
+	}
+
+	public int getStarId() {
+		return starId;
+	}
+
+	public void setStarId(int starId) {
+		this.starId = starId;
+	}
+
+	public String getListTourSpotId() {
+		return listTourSpotId;
+	}
+
+	public void setListTourSpotId(String listTourSpotId) {
+		this.listTourSpotId = listTourSpotId;
+	}
+	
+	
+}

@@ -1,0 +1,31 @@
+package com.example.demo.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.example.demo.model.Palette;
+import com.example.demo.model.TourSpot;
+
+public interface TourSpotRepository extends JpaRepository<TourSpot, Integer> {
+
+	@Query("SELECT t FROM TourSpot t WHERE t.personalColor = :personalColor")
+	List<TourSpot> findAllByPersonal(String personal);
+
+	@Query("SELECT t FROM TourSpot t WHERE t.psyColor = :psyColor")
+	List<TourSpot> findAllByPsy(String psyColor);
+
+	@Query("SELECT p FROM Palette p WHERE p.paletteId = :paletteId")
+	Palette findPaletteById(int paletteId);
+
+	@Query("SELECT p FROM Palette p WHERE p.customerId = :customerId")
+	List<Palette> findPaletteByCustomerId(int customerId);
+
+//	Palette savePalette(Palette palette);
+
+	TourSpot findRandomByPsyColor(String psyColor);
+
+	TourSpot findRandomByPersonalColor(String personalColor);
+
+}
