@@ -21,7 +21,7 @@ public class TourSpot {
 	String personalColor;
 	String psyColor;
 	String hours;
-	String hompage;
+	String homepage;
 	String parking;
 	String content;
 	String images;
@@ -40,7 +40,7 @@ public class TourSpot {
 		this.personalColor = "";
 		this.psyColor = "";
 		this.hours = "";
-		this.hompage = "";
+		this.homepage = "";
 		this.parking = "";
 		this.content = "";
 		this.images = "";
@@ -57,7 +57,7 @@ public class TourSpot {
 			String personalColor,
 			String psyColor,
 			String hours,
-			String hompage,
+			String homepage,
 			String parking,
 			String content,
 			String images,
@@ -75,7 +75,7 @@ public class TourSpot {
 		this.personalColor = personalColor;
 		this.psyColor = psyColor;
 		this.hours = hours;
-		this.hompage = hompage;
+		this.homepage = homepage;
 		this.parking = parking;
 		this.content = content;
 		this.images = images;
@@ -158,12 +158,12 @@ public class TourSpot {
 		this.hours = hours;
 	}
 
-	public String getHompage() {
-		return hompage;
+	public String getHomepage() {
+		return homepage;
 	}
 
-	public void setHompage(String hompage) {
-		this.hompage = hompage;
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
 	}
 
 	public String getParking() {

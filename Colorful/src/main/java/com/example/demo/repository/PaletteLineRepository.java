@@ -15,6 +15,9 @@ public interface PaletteLineRepository extends JpaRepository<PaletteLine, Intege
 	@Query("DELETE FROM PaletteLine p WHERE p.paletteId = :paletteId")
 	void deleteByPaletteId(int paletteId);
 
+	@Query("SELECT p.tourSpotId FROM PaletteLine p WHERE p.paletteId = :paletteId")
+	List<Integer> findAllByPaletteId(int paletteId);
+
 //	@Modifying
 //	Palette save(Palette palette);
 

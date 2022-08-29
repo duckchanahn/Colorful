@@ -20,9 +20,9 @@ public interface PaletteRepository extends JpaRepository<Palette, Integer> {
 	@Query("SELECT p FROM Palette p WHERE p.paletteId = :paletteId")
 	String findTourSpotListByPaletteId(int paletteId);
 	
-	@Modifying
-	@Query("UPDATE Palette p SET p.listTourSpotId = :tourSpotIdList WHERE p.paletteId = :paletteId")
-	Palette updateTourSpotListByPaletteId(int paletteId, String tourSpotIdList);
+//	@Modifying
+//	@Query("UPDATE Palette p SET p.listTourSpotId = :tourSpotIdList WHERE p.paletteId = :paletteId")
+//	Palette updateTourSpotListByPaletteId(int paletteId, String tourSpotIdList);
 
 //	@Modifying
 //	Palette save(Palette palette);
