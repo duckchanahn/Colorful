@@ -100,6 +100,15 @@ public class TravelService {
 	}
 
 	public TourSpot getRanmdomTourSpot(String psyColor, String personalColor) {
+		
+		if(psyColor.equals("") && personalColor.equals("")) {
+			return this.tourSpotRepository.findRandom().get(0);
+		} else if(psyColor.equals("") && !personalColor.equals("")) {
+			return this.tourSpotRepository.findRandom().get(0);
+		} else if(!psyColor.equals("") && personalColor.equals("")) {
+			return this.tourSpotRepository.findRandom().get(0);
+		} 
+		
 		int i = new Random().nextInt(2);
 		if(i == 0) {
 			return this.tourSpotRepository.findRandomByPsyColor(psyColor).get(0);
@@ -108,16 +117,40 @@ public class TravelService {
 		}
 	}
 	
-	public List<TourSpotSummary> getTourSpotListByCustomerId(int customerId) {
-		// Star에서 여행지 id list 받아오고, 이걸로 이미지 받아오기
+
+	public List<TourSpot> getRanmdomTourSpotList() {
+		return this.tourSpotRepository.findRandom();
+	}
+	
+	public List<TourSpot> getTourSpotListByCustomerId(int customerId) {
+		List<TourSpot> result = new ArrayList<>();
 		List<Integer> idList = new ArrayList<>();
-		idList = this.starRepository.findTourSpotIdListByCustomerId(customerId);
-		ArrayList<TourSpotSummary> result = new ArrayList<>();
-		for(int id : idList) {
-			result.add(new TourSpotSummary(id, this.tourSpotRepository.findImageById(id))); 
+		idList = this.starRepository.findAllByCustomerId(customerId);
+		
+		for(int i : idList) {
+			result.add(this.tourSpotRepository.findById(i).get());
 		}
 		return result;
+		// Star에서 여행지 id list 받아오고, 이걸로 이미지 받아오기
+//		List<Integer> idList = new ArrayList<>();
+//		idList = this.starRepository.findTourSpotIdListByCustomerId(customerId);
+//		ArrayList<TourSpotSummary> result = new ArrayList<>();
+//		for(int id : idList) {
+//			result.add(new TourSpotSummary(id, this.tourSpotRepository.findImageById(id))); 
+//		}
+//		return result;
 	}
+	
+
+	public Star getStarByCustomerIdANDTourSpotId(int customerId, int tourSpotId) {
+		Star star = this.starRepository.findStarByCustomerIdANDTourSpotId(customerId, tourSpotId);
+		if(star == null) {
+			return new Star(-1, -1, -1);
+		} else {
+			return star;
+		}
+	}
+
 
 	@Transactional(readOnly = false)
 	public Star addStar(int customerId, int tourSpotId) {
@@ -130,5 +163,6 @@ public class TravelService {
 		this.starRepository.deleteById(starId);
 		return 1;
 	}
+
 
 }

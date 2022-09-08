@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="findRandom"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="findRandom"/>
 			<item value="tourspot0_.hompage"/>
 			<item value="eyes_left_y_right"/>
 			<item value="eyes_left_y_left"/>
@@ -22,7 +23,6 @@
 			<item value=";"/>
 			<item value=","/>
 			<item value="private "/>
-			<item value="String"/>
 		</list>
 		<list key="replacehistory">
 			<item value="y_right"/>

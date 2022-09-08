@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.example.demo.model.Palette;
 import com.example.demo.model.TourSpot;
+import com.example.demo.model.TourSpotSummary;
 
 public interface TourSpotRepository extends JpaRepository<TourSpot, Integer> {
 
@@ -29,9 +30,18 @@ public interface TourSpotRepository extends JpaRepository<TourSpot, Integer> {
 	
 	@Query("SELECT t FROM TourSpot t WHERE t.personalColor = :personalColor ORDER BY rand()")
 	List<TourSpot> findRandomByPersonalColor(String personalColor);
+	
+//	@Query("SELECT t FROM TourSpot t WHERE t.psyColor = :psyColor ORDER BY rand()")
+//	List<TourSpot> findRandom();
+
+	@Query("SELECT t FROM TourSpot t ORDER BY rand()")
+	List<TourSpot> findRandom();
 
 	@Query("SELECT t.images FROM TourSpot t WHERE t.tourSpotId = :id")
 	String findImageById(int id);
+
+
+
 
 
 }

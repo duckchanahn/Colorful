@@ -25,8 +25,19 @@ public class TestController {
 	@PostMapping("/test/personalcolor")
 	@ApiOperation("퍼스널컬러 테스트")
 	public String testPersonalColor(@RequestBody HashMap<String, Object> param) {
-		System.out.println("start-----------------------------------------");
-		return testService.connectPersonalColorTest((int)param.get("customerId"), (String)param.get("binary"));
+		System.out.println("퍼스널컬러 테스트 입장! ==================");
+		String result = testService.connectPersonalColorTest((int)param.get("customerId"), (String)param.get("binary"));
+		System.out.println("!! 결과 !! " + result);
+		return result;
+	}
+	
+	@PostMapping("/test/personal/result")
+	@ApiOperation("퍼스널컬러 테스트 결과 저장")
+	@ResponseBody
+	public int updatePersonalResult(int customerId, String result) {
+		System.out.println("퍼스널컬러 결과 저장 입장! ==================");
+		System.out.println("customerId : " + customerId + ", " + "result : " + result);
+		return testService.updatePersonalResult(customerId, result);
 	}
 	
 	@GetMapping("/test/psycological/question")
@@ -46,7 +57,7 @@ public class TestController {
 	}
 	
 	@PostMapping("/test/psycological/result")
-	@ApiOperation("심리컬러 답변 받아오기")
+	@ApiOperation("심리컬러 결과 저장")
 	@ResponseBody
 	public int updatePsycologicalResult(int customerId, String result) {
 		System.out.println("심리컬러 결과 저장 입장! ==================");

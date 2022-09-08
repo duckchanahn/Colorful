@@ -51,10 +51,15 @@ public class TestService {
 		List<PsycologicalTestAnswer> answers = this.testRepository.getPsycologicalAnswer();
 		return answers;
 	}
+	
+	@Transactional(readOnly = false)
+	public int updatePersonalResult(int customerId, String result) {
+		return this.testRepository.updatePersonalResultBycustomerId(customerId, result);
+	}
 
 	@Transactional(readOnly = false)
 	public int updatePsycologicalResult(int customerId, String result) {
-		return this.testRepository.updateResultBycustomerId(customerId, result);
+		return this.testRepository.updatePsyResultBycustomerId(customerId, result);
 	}
 	
 }
